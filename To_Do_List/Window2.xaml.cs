@@ -10,41 +10,35 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace To_Do_List
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Window2.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Window2 : Window
     {
-
-        public static Window1 window1;
-
-        public MainWindow()
+        public Window2()
         {
             InitializeComponent();
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (window1 == null)
-            {
-                window1 = new Window1();
-                window1.Show();
-                this.Close();
-            }
-            else
-            {
-                window1.Activate();
-            }
+            NameKv.Visibility = Visibility.Visible;
+            NameKv.Focus();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            OpisKv.Visibility = Visibility.Visible;
+            OpisKv.Focus();
         }
     }
 }
