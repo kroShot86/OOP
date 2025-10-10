@@ -27,7 +27,7 @@ namespace To_Do_List
             InitializeComponent();
         }
 
-
+        //авпвывыв
         public StackPanel StackPanel1 = new StackPanel();
         public StackPanel StackPanel2 = new StackPanel();
 
