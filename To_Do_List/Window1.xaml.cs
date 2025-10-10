@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static To_Do_List.Window2;
 
 namespace To_Do_List
 {
@@ -19,34 +20,27 @@ namespace To_Do_List
     /// </summary>
     public partial class Window1 : Window
     {
+        public List<Quest> quests = new List<Quest>();
+        public static Window2 window2;
         public Window1()
         {
             InitializeComponent();
         }
 
-        StackPanel StackPanel1 = new StackPanel();
+
+        public StackPanel StackPanel1 = new StackPanel();
+        public StackPanel StackPanel2 = new StackPanel();
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Button newButton = new Button
-            {
-                HorizontalAlignment = HorizontalAlignment.Center, // Выравнивание по горизонтали
-                VerticalAlignment = VerticalAlignment.Center,
-                Background = null,
-                Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF37F7EA")),
-                FontSize = 24,
-            };
-            TextBlock textBlock = new TextBlock
-            {
-                Text = "Название квеста",
-                TextWrapping = TextWrapping.Wrap, // Включаем перенос текста
-                TextAlignment = TextAlignment.Center // Выравнивание текста по центру
-            };
 
-            newButton.Content = textBlock;
-
-            StackPanel1.Children.Add(newButton);
-            figny.Content = StackPanel1;
+            if (window2 == null || !window2.IsVisible)
+            {
+                window2 = new Window2(this);
+                window2.Owner = this;
+                window2.Show();
+            }
+            
 
         }
     }
