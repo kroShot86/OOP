@@ -10,43 +10,38 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static To_Do_List.Window2;
 
 namespace To_Do_List
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Window1 : Window
     {
-
-        public static Window1 window1;
-
-        public MainWindow()
+        public List<Quest> quests = new List<Quest>();
+        public static Window2 window2;
+        public Window1()
         {
             InitializeComponent();
         }
 
+
+        public StackPanel StackPanel1 = new StackPanel();
+        public StackPanel StackPanel2 = new StackPanel();
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (window1 == null)
+
+            if (window2 == null || !window2.IsVisible)
             {
-                window1 = new Window1();
-                window1.Show();
-                this.Close();
+                window2 = new Window2(this);
+                window2.Owner = this;
+                window2.Show();
             }
-            else
-            {
-                window1.Activate();
-            }
+            
+
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-
     }
 }
