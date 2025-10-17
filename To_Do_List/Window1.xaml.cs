@@ -71,7 +71,7 @@ namespace To_Do_List
                     StackPanel2.Children.Remove(newButton);
                 }
             };
-
+            //вапывапыываываывыв
             StackPanel1.Children.Add(newButton);
             figny.Content = StackPanel1;
             figny1.Content = StackPanel2;
